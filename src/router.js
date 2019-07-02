@@ -1,17 +1,29 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
-import HelloWorld from "./components/HelloWorld";
+import LatestMovie from './components/LatestMovie'
+import Movie from './components/Movie'
 
 Vue.use(VueRouter)
 
 export default new VueRouter({
-    mode: history,
-    routes:[
+    mode: 'history',
+    routes: [
+        {
+            path: '*',
+            name: 'Default',
+            component: LatestMovie
+        },
         {
             path: '/',
-            component:HelloWorld
+            name: 'LatestMovie',
+            component: LatestMovie
+        },
+        {
+            path: '/movie/:id',
+            name: 'Movie',
+            props: true,
+            component: Movie
         }
+
     ]
-
 })
-
